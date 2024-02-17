@@ -25,10 +25,3 @@ def Tiktok(request):
     context = {'Tiktokers': queryset}
 
     return render(request, 'index.html', context)
-
-
-
-def del_tiktoker(request, id):
-    queryset = tiktok.objects.get(id=id)
-    queryset.delete()
-    return redirect('/')
