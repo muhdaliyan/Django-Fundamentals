@@ -1,0 +1,64 @@
+
+1.
+2.
+3.
+4.
+
+5.
+6. In views.
+	i. add queryset
+	ii. add context
+	iii. pass context
+7. In HTML:
+	i. use {% for loop %}
+	ii. use {{forloop.counter}}
+	iii. 
+8. Set Static Directory in Setting.py #For Files
+	import os
+
+	STATIC_URL = 'static/'
+	STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+	STATICFILES_DIR = {os.path.joinBASE_DIR, 'public/static')}
+`	
+	#new folder will be create
+	MEDIA_ROOT = os.path.join(BASE_DIR, 'public/static')
+	MEDIA_URL = '/media/' 
+
+9. In Urls.py #For Files
+	from django.conf.urls.static import static
+	from django.conf import settings
+	from django.contrib.staticfiles.urls import staticfils_urlpatterns
+
+	if settings.DEBUG: urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+	urlpatterns += staticfiles_urlpatterns()
+
+10. In HTML add:
+	<img src="/media/{{tiktoker.bootha}}" style="height: 50px;">
+
+	#if you wanna add del button:
+		i. In views:
+			def del_tiktoker(request, id): # new rout
+    				queryset = tiktok.objects.get(id=id)
+    				queryset.delete()
+    				return redirect('/')
+		ii: In Urls:
+			path('del/<id>/', del_tiktoker, name='del_tiktoker'), #ID is dynamic, Handling Dynamic URLS
+		
+		iii. In HTML:
+			<a href="del/{{tiktoker.id}}">Delete</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

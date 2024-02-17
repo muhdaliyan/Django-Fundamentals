@@ -1,0 +1,14 @@
+1. Creare App.
+2. Make Model.
+3. Add app to setting.
+4. makemigrations and migrate.
+
+5. Add method for text and image in HTML.
+6. Add views.
+	i. request.POST.get()
+	ii. request.FILES.get()
+	iii. Create object
+7. Import .models in admin.py
+8. Resigter model
+	i. admin.site.register(#model_Name)
+	
