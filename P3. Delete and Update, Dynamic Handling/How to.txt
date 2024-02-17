@@ -1,0 +1,69 @@
+
+1-10. #In previous Files...
+
+
+11.To Del Data:
+	i. In views:
+		def del_tiktoker(request, id): # new rout
+    			queryset = tiktok.objects.get(id=id)
+    			queryset.delete()
+    			return redirect('/')
+	ii: In Urls:
+		path('del/<id>/', del_tiktoker, name='del_tiktoker'), #ID is dynamic, Handling Dynamic URLS
+		
+	iii. In HTML:
+		<a href="del/{{tiktoker.id}}">Delete</a>
+
+12.To Update Data:
+	i. In views:
+		def update_data(request, id):
+    			queryset = tiktok.objects.get(id=id)
+
+    			if request.method == "POST":
+        		data = request.POST
+
+        		name = data.get('name')
+        		email = data.get('email')
+        		Description = data.get('Description')
+        		bootha = request.FILES.get('bootha')
+
+        		queryset.name = name
+        		queryset.email = email
+        		queryset.Description = Description
+        
+        		if bootha:
+            			queryset.bootha = bootha
+        
+        		queryset.save()
+        		return redirect('/')
+
+    		context = {'insan': queryset}
+    		return render(request, 'update_data.html', context)
+
+
+	ii: In Urls:
+		path('del/<id>/', update_data, name='update_data'), #ID is dynamic, Handling Dynamic URLS
+		
+	iii. In main HTML: #add button
+		<th> <a href="update/{{tiktoker.id}}">Update</a> </th>
+
+	iv. Make a html page for update.
+
+	v. Pass value in HTML fields:
+		value="{{insan.name}}" etcc
+		and only {{insan.Description}} for textarea
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
