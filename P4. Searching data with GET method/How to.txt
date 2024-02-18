@@ -1,0 +1,24 @@
+
+1-12. #In previous Files...
+
+13. Add Search In HTML and name it.
+	i. we will not use method
+	ii. we will use get function.
+
+14. In view:
+	i. Use filter Below object.all() function that it will change querryset amd will not show all data.
+	ii. if request.GET.get('search'):
+        	queryset = queryset.filter(Description__icontains = request.GET.get('search'))
+	iii. __icontains is a keyword used in djando to find specific data.
+
+
+
+
+
+
+
+
+
+
+
+	

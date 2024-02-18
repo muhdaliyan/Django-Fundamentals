@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Data Updotor</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div>
+            <label for="name">Name</label>
+            <input type="text" value="{{insan.name}}" name="name" required>
+        </div><br>
+        <div>
+            <label for="email">Email</label>
+            <input type="email" value="{{insan.email}}" name="email">
+        </div><br>
+        <div>
+            <label for="Description">Description</label><br>
+            <textarea name="Description" id="Description" cols="30" rows="10">{{insan.Description}}</textarea>
+        </div><br>
+        <div>
+            <label for="booths">Upload Booths</label><br>
+            <input type="file" name="bootha">
+        </div><br>
+        <button type="submit">Update</button>
+    </form>
+
+</body>
+
+</html>

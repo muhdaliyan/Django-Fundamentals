@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Data Fecther</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div>
+            <label for="name">Name</label>
+            <input type="text" name="name" required>
+        </div><br>
+        <div>
+            <label for="email">Email</label>
+            <input type="email" name="email">
+        </div><br>
+        <div>
+            <label for="Description">Description</label><br>
+            <textarea name="Description" id="Description" cols="30" rows="10"></textarea>
+        </div><br>
+        <div>
+            <label for="booths">Upload Booths</label><br>
+            <input type="file" name="bootha">
+        </div><br>
+        <button type="submit">Save</button>
+    </form>
+    <br><br>
+    <div>
+        <form>
+            <label for="search">Search</label>
+            <input type="text" name="search">
+            <button type="submit">search</button>
+        </form>
+        <br>
+
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Description</th>
+                <th>Bootha</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for tiktoker in Tiktokers %}
+            <tr>
+                <th>{{forloop.counter}}</th>
+                <th>{{tiktoker.name}}</th>
+                <th>{{tiktoker.email}}</th>
+                <th>{{tiktoker.Description}}</th>
+                <th>
+                    <img src="/media/{{tiktoker.bootha}}" style="height: 50px;">
+                </th>
+                <th> <a href="del/{{tiktoker.id}}">Delete</a> </th>
+                <th> <a href="update/{{tiktoker.id}}">Update</a> </th>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>
