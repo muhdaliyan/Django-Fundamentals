@@ -1,0 +1,8 @@
+In APP:
+	Create static Folder
+	Add All images
+
+In HTML:
+	{% load static %} #On top
+
+	<img src="{% static 'logo.jpg' %}">
